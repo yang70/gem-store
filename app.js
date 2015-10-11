@@ -17,6 +17,16 @@
     };
   });
 
+  app.controller('ReviewController', function(){
+    this.review = {};
+
+    this.addReview = function(product){
+      this.review.createdOn = Date.now();
+      product.reviews.push(this.review);
+      this.review = {};
+    };
+  });
+
   var gems = [
     {
       name: 'Dodecahedron',
@@ -26,6 +36,18 @@
       images: [
         {
           full: 'images/gem-01.gif'
+        }
+      ],
+      reviews: [
+        {
+          stars: 5,
+          body: "I love this product!",
+          author: "joe@thomas.com"
+        },
+        {
+          stars: 1,
+          body: "This product sucks",
+          author: "tim@hater.com"
         }
       ]
     },
@@ -37,6 +59,18 @@
       images: [
         {
           full: 'images/gem-02.gif'
+        }
+      ],
+      reviews: [
+        {
+          stars: 5,
+          body: "I love this product!",
+          author: "joe@thomas.com"
+        },
+        {
+          stars: 1,
+          body: "This product sucks",
+          author: "tim@hater.com"
         }
       ]
     }
